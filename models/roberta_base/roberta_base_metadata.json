@@ -1,0 +1,76 @@
+{
+    "model_card": {
+      "model_name": "facebookai/roberta-base",
+      "description": "A pre-trained RoBERTa model fine-tuned for urgency classification in tweets related to disaster response. This model predicts whether a tweet is urgent or not based on its content.",
+      "model_type": "Text Classification",
+      "architecture": "RoBERTa",
+      "pretrained_on": ["canada_wildfires_2016", "hurricane_harvey_2017"],
+      "use_case": "Classifying tweets into urgent or not urgent categories for disaster response prioritization",
+  
+      "model_details": {
+        "version": "1.0",
+        "license": "MIT",
+        "source": "https://huggingface.co/facebookai/roberta-base",
+        "developer": "Your Organization/Name",
+        "contact": "your-email@example.com"
+      },
+  
+      "intended_use": {
+        "primary_use_case": "Urgency classification for tweets in disaster response scenarios",
+        "domains": ["Disaster Response", "Social Media Analysis"],
+        "input_format": {
+          "type": "text",
+          "format": ".txt"
+        },
+        "output_format": {
+          "type": "text",
+          "description": "Output is a label (Urgent or Not Urgent) based on the content of the tweet",
+          "example": "Urgent"
+        }
+      },
+  
+      "model_performance": {
+        "evaluation_metrics": ["Accuracy", "F1-Score", "Precision", "Recall"],
+        "benchmark_scores": {
+          "accuracy": "91.23%",
+          "f1_score": "92.86%",
+          "precision": "90.28%",
+          "recall": "95.59%"
+        },
+        "limitations": [
+          "The model may not perform well with tweets in languages other than English.",
+          "The model assumes that tweets are well-formed and may struggle with slang or informal language."
+        ]
+      },
+  
+      "training_details": {
+        "dataset": "Canada Wildfires 2016 dataset and Hurricane Harvey 2017 dataset",
+        "fine_tuning": true,
+        "hyperparameters": {
+          "learning_rate": "2e-5",
+          "batch_size": "16",
+          "epochs": "3",
+          "optimizer": "Adam",
+          "other_params": {
+            "weight_decay": "0.01"
+          }
+        }
+      },
+  
+      "code_availability": {
+        "is_available": true,
+        "available_files": ["inference.py", "train.py", "app.py"],
+        "unavailable_files": [
+          
+        ]
+      },
+  
+      "references": {
+        "paper": "https://arxiv.org/abs/1907.11692",
+        "codebase": "https://github.com/huggingface/transformers"
+      },
+  
+      "last_updated": "2025-04-27"
+    }
+  }
+  

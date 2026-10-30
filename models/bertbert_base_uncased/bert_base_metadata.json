@@ -1,0 +1,74 @@
+{
+  "model_card": {
+    "model_name": "google-bert/bert-base-uncased Urgency Classifier",
+    "description": "A fine-tuned BERT model that classifies tweets related to disasters as either Urgent or Not Urgent. Useful for crisis response prioritization.",
+    "model_type": "Text Classification",
+    "architecture": "BERT (bert-base-uncased)",
+    "pretrained_on": ["bert-base-uncased (general text corpus)"],
+    "use_case": "Disaster response teams can prioritize actions based on tweet urgency classification during crisis events.",
+
+    "model_details": {
+      "version": "1.0",
+      "license": "Apache 2.0",
+      "source": "https://huggingface.co/google-bert/bert-base-uncased",
+      "developer": "Your Name or Organization",
+      "contact": "your.email@example.com"
+    },
+
+    "intended_use": {
+      "primary_use_case": "Classify tweets into 'Urgent' or 'Not Urgent' categories for faster disaster response.",
+      "domains": ["Disaster Management", "Emergency Response", "Social Media Analysis"],
+      "input_format": {
+        "type": "text",
+        "format": ".txt, plain text string input"
+      },
+      "output_format": {
+        "type": "label",
+        "description": "Returns a label: either 'Urgent' or 'Not Urgent'.",
+        "example": "Urgent"
+      }
+    },
+
+    "model_performance": {
+      "evaluation_metrics": ["Accuracy", "Precision", "Recall", "F1 Score"],
+      "benchmark_scores": {
+        "accuracy": "91.23%", 
+        "precision": "92.20%", 
+        "recall": "95.59%", 
+        "f1_score": "93.86%"
+      },
+      "limitations": [
+        "Model performance may degrade on crisis events significantly different from the training data.",
+        "Does not handle non-English tweets.",
+        "May misclassify sarcastic or ambiguous tweets."
+      ]
+    },
+
+    "training_details": {
+      "dataset": "CrisisNLP HumAID Canada Wildfires 2016 Dataset (processed with urgency labels)",
+      "fine_tuning": "true",
+      "hyperparameters": {
+        "learning_rate": "2e-5",
+        "batch_size": "16",
+        "epochs": "3",
+        "optimizer": "AdamW",
+        "other_params": {
+          "weight_decay": "0.01"
+        }
+      }
+    },
+
+    "code_availability": {
+      "is_available": true,
+      "available_files": ["train.py", "infer.py", "app.py"],
+      "unavailable_files": []
+    },
+
+    "references": {
+      "paper": "https://arxiv.org/abs/1810.04805",
+      "codebase": "https://github.com/google-research/bert"
+    },
+
+    "last_updated": "2025-04-26"
+  }
+}
